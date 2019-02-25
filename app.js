@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -26,7 +27,9 @@ app.use((err, req, res, next) => {
 });
 
 app.use((err, req, res) => {
-  res.status(500).send({ error: err });
+  res.status(500).send({
+    error: err
+  });
 });
 
 // Export your Express configuration so that it can be consumed by the Lambda handler
